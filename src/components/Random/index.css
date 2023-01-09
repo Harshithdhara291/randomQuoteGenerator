@@ -1,0 +1,70 @@
+.main-container {
+  padding: 10px;
+}
+.loader {
+  text-align: center;
+}
+.main-container2 {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.links {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.home-button {
+  color: #c92d22;
+  font-size: 25px;
+  font-weight: bold;
+  background: none;
+  border: none;
+  font-family: 'Roboto';
+  cursor: pointer;
+}
+.bookmarks-button {
+  background: none;
+  font-size: 20px;
+  color: #c92d22;
+  border: none;
+  font-family: 'Roboto';
+  cursor: pointer;
+}
+
+.quote {
+  margin: 50px;
+  background-color: #c92d22;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.quote-head {
+  color: white;
+  font-family: 'Roboto';
+  font-size: 30px;
+}
+.quote-auth {
+  color: white;
+  font-family: 'Roboto';
+  font-size: 20px;
+}
+.button {
+  background-color: green;
+  color: aliceblue;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Roboto';
+  padding: 8px;
+  cursor: pointer;
+}
+.icon {
+  /* background-color: #c92d22; */
+  /* color: white;
+  cursor: pointer;
+  border: #c92d22; */
+}
