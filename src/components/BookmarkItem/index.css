@@ -1,0 +1,18 @@
+.item {
+  background-color: #c92d22;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.head {
+  color: white;
+  font-family: 'Roboto';
+  font-size: 30px;
+}
+.para {
+  color: white;
+  font-family: 'Roboto';
+  font-size: 20px;
+}
