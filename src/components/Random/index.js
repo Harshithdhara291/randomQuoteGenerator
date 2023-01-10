@@ -1,10 +1,23 @@
 import {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {v4 as uuidv4} from 'uuid'
-import {FcBookmark} from 'react-icons/fc'
+import {BsFillBookmarkStarFill} from 'react-icons/bs'
 import Context from '../../context/Context'
 
 import './index.css'
+
+const options = [
+  '',
+  'technology,famous-quotes',
+  'technology|famous-quotes',
+  'technology',
+  'famous-quotes',
+  'history|civil-rights',
+  'history',
+  'love|happiness',
+  'love',
+  'happiness',
+]
 
 class Random extends Component {
   state = {
@@ -14,6 +27,7 @@ class Random extends Component {
         'Knowledge comes, but wisdom lingers. It may not be difficult to store up in the mind a vast quantity of facts within a comparatively short time, but the ability to form judgments requires the severe discipline of hard work and the tempering heat of experience and maturity.',
       author: 'Calvin Coolidge',
     },
+    tags: '',
   }
 
   componentDidMount() {
@@ -21,7 +35,10 @@ class Random extends Component {
   }
 
   useClickingButton = async () => {
-    const response = await fetch('https://api.quotable.io/random')
+    const {tags} = this.state
+    console.log(tags)
+    const apiUrl = `https://api.quotable.io/random?tags=${tags}`
+    const response = await fetch(apiUrl)
     const data = await response.json()
     const formattedData = {
       author: data.author,
@@ -32,10 +49,9 @@ class Random extends Component {
     this.setState({quotes: formattedData, isLoading: false})
   }
 
-  //   appendingBookmarks = () => {
-  //     const {quotes, bookmarksList} = this.state
-  //     this.setState({bookmarksList: [quotes, ...bookmarksList]})
-  //   }
+  onOptionChangeHandler = event => {
+    this.setState({tags: event.target.value})
+  }
 
   appendingBookmarks = () => (
     <Context.Consumer>
@@ -72,11 +88,25 @@ class Random extends Component {
                 <div className="main-container2">
                   <div className="quote">
                     <h1 className="quote-head">{quotes.content}</h1>
-                    <p className="quote-auth">{quotes.author}</p>
-                    <button type="button" onClick={onClickAdd}>
-                      <FcBookmark className="icon" />
-                    </button>
+                    <div className="para-but">
+                      <p className="quote-auth"> - {quotes.author}</p>
+                      <button
+                        type="button"
+                        onClick={onClickAdd}
+                        className="icon"
+                      >
+                        <BsFillBookmarkStarFill />
+                      </button>
+                    </div>
                   </div>
+                  <select
+                    onChange={this.onOptionChangeHandler}
+                    className="drop-down"
+                  >
+                    {options.map(option => (
+                      <option key={option}>{option}</option>
+                    ))}
+                  </select>
                   <button
                     type="button"
                     className="button"

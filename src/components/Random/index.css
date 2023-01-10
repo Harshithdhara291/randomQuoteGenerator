@@ -52,6 +52,7 @@
   color: white;
   font-family: 'Roboto';
   font-size: 20px;
+  margin-right: 10px;
 }
 .button {
   background-color: green;
@@ -63,8 +64,19 @@
   cursor: pointer;
 }
 .icon {
-  /* background-color: #c92d22; */
-  /* color: white;
+  background-color: #c92d22;
+  color: white;
   cursor: pointer;
-  border: #c92d22; */
+  border: #c92d22;
+}
+.para-but {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.drop-down {
+  margin-bottom: 20px;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
 }
